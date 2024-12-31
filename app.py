@@ -10,15 +10,12 @@ if GRADIO_TEMP_DIR is None:
     os.environ["GRADIO_TEMP_DIR"] = GRADIO_TEMP_DIR
 
 
-from ktem.main import App  # noqa
+from libs.ktem.ktem.main import App  # noqa
 
 app = App()
 demo = app.make()
 demo.queue().launch(
     favicon_path=app._favicon,
     inbrowser=True,
-    allowed_paths=[
-        "libs/ktem/ktem/assets",
-        GRADIO_TEMP_DIR,
-    ],
+    allowed_paths=["libs/ktem/ktem/assets",GRADIO_TEMP_DIR,],
 )
